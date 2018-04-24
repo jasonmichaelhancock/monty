@@ -1,0 +1,1 @@
+This repository is the main space for the completion of the project 0x18. C - Stacks, Queues - LIFO, FIFO.
