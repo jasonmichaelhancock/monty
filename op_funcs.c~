@@ -1,0 +1,50 @@
+#include "monty.h"
+
+/**
+ * op_add - add func
+ *
+ * @a: The operator
+ * @b: The other operator
+ *
+ * Return: c
+ */
+void op_pall(stack_t **stack, unsigned int linecount)
+{
+  stack_t *temp = *stack;
+  (void)linecount;
+
+  while (temp != NULL)
+    {
+      printf("PALL:\n%d\n", temp->n);
+      temp = temp->next;
+    }
+
+  /*
+  stack_t *temp = *stack;
+
+  printf("test5\n");
+  while (temp != NULL)
+    {
+      printf("%d THIS IS STACKPRINT\n", temp->n);
+      temp = temp->prev;
+    }
+  printf("%d pall linecount\n", linecount);
+  return;
+  */
+}
+/**                                                                                    
+ * op_add - add func                                                                   
+ *                                                                                     
+ * @a: The operator                                                                    
+ * @b: The other operator                                                              
+ *                                                                                     
+ * Return: c                                                                           
+ */
+void op_pint(stack_t **stack, unsigned int linecount)
+{
+  stack_t *temp = *stack;
+  (void)linecount;
+
+  printf("PINT:\n%d\n", temp->n);
+  temp = temp->next;
+}

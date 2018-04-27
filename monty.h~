@@ -40,9 +40,9 @@ typedef struct instruction_s
 stack_t *stack;
 
 int main(int argc, char **argv);
-void open_file(char *filename);
+char *open_file(char *filename);
 int remove_spaces(char *filename);
-void push_ex(stack_t **stack, char *token);
+void push_ex(char *token);
 size_t print_dlistint(stack_t *h);
 void op_pall(stack_t **stack, unsigned int linecount);
 void op_pint(stack_t **stack, unsigned int linecount);

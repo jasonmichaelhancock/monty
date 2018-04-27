@@ -1,0 +1,90 @@
+#include "monty.h"
+#include <stdbool.h>
+
+/**
+ * add_dnodeint - add a node into the linked list
+ * @head: double pointer
+ * @n: constant variable
+ * Return: will return the counter
+ */
+void push_ex(stack_t **stack, char *token)
+{
+  stack_t *new;
+  int n;                                                                              
+
+  n = atoi(token);
+  new = malloc(sizeof(stack_t));
+  new->n = n;
+  new->prev = NULL;
+  printf("PUSH_EX\n");
+  if (*stack == NULL)
+    {
+      new->next = NULL;
+      *stack = new;
+      return;
+    }
+  new->next = *stack;
+  (*stack)->prev = new;
+  *stack = new;
+  return;
+}
+/*
+ 
+  stack_t *head = NULL;                                                                
+  stack_t *link;                                                                       
+
+
+  printf("pushex");
+  link = malloc(sizeof(stack_t));
+  (MALLOC FAILED ERROR)
+    n = atoi(token);
+  link->n = n;
+
+
+  head->prev = link;
+
+
+  link->next = head;
+
+  head = link;
+
+}
+
+
+
+
+
+
+
+  int length() {
+    int length = 0;
+    struct node *current;
+    
+    for(current = head; current != NULL; current = current->next){
+      length++;
+    }
+    
+    return length;
+  }
+
+
+  {
+  stack_t *newnode;
+  int x;
+
+  printf("push_ex\n");
+  x = atoi(token);
+  newnode = malloc(sizeof(stack_t));
+  if (newnode == NULL)
+    return (NULL);
+
+  newnode->n = x;
+  newnode->next = head;
+  newnode->prev = NULL;
+
+  if (head != NULL)
+    (head)->prev = newnode;
+  head = newnode;
+  return (newnode);
+}
+*/

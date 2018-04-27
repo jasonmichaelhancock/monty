@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "monty.h"
+#include "3-calc.h"
 
 /**
  * get_op_func - get the functions
@@ -9,14 +9,14 @@
  *
  * Return: pointer to a function
  */
-void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
+int (*get_op_func(char *s))(int, int)
 {
   int i = 0;
   instruction_t ops[] = {
+    {"push", op_push},
     {"pall", op_pall},
     {"pint", op_pint},
-    /*
-      {"pop", op_pop},
+    {"pop", op_pop},
     {"swap", op_swap}
     {"add", op_add},
     {"nop", op_nop},
@@ -30,15 +30,12 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
     {"rotr", op_rotr},
     {"stack", op_stack},
     {"queue", op_queue},
-    */
     {NULL, NULL}
   };
   while (ops[i].opcode != NULL)
     {
-      if (strcmp(ops[i].opcode, s) == 0)
-	{
-	  return (ops[i].f);
-	}
+      if (s[0] == (ops[i].opcode[0]))
+	return (ops[i].f);
       i++;
     }
   return (NULL);

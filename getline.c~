@@ -1,9 +1,8 @@
 #include "monty.h"
 #define DELIMS " \n\t\r\a"
 
-void open_file(char *filename)
+char *open_file(char *filename)
 {
-  stack_t *temp;
   char *token, *token1;
   FILE *fd;
   char *line = NULL;
@@ -14,7 +13,7 @@ void open_file(char *filename)
 
   if (filename == NULL)
     {
-      return;
+      return(0);
     }
   fd = fopen(filename, "r");
   if (fd == NULL)
@@ -37,31 +36,20 @@ void open_file(char *filename)
 	  continue;
 	}
       token1 = strtok(NULL,DELIMS);
+      printf("\nCOMMAND:%s ARGUMENT:%s LINE:%lu\n", token, token1, line_count);
       if ((strcmp(token, psh)) != 0)
 	{
+	  printf("GOTO OPFUNC\n");
 	  (*get_op_func(token))(&stack, line_count);
 	}
       else
 	{
 	  if (token != NULL)
 	    {
+	      printf("GOTO PUSH_EX\n");
 	      push_ex(&stack, token1);
 	    }
 	}
     }
-  fclose(fd);
-  free(line);
-  if (stack == NULL)
-    return;
-  while (stack != NULL)
-    {
-      temp = (stack)->next;
-      free (stack);
-      if (temp == NULL)
-	return;
-      temp->prev = NULL;
-      stack = temp;
-    }
-  free(stack);
-  return;
+  return (line);
 }
