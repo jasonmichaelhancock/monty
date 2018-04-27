@@ -32,3 +32,18 @@ void op_pint(stack_t **stack, unsigned int linecount)
   printf("PINT:\n%d\n", temp->n);
   temp = temp->next;
 }
+/**                                                                                  
+ * op_add - add func                                                                \
+ *                                                                                 
+ * @a: The operator                                                                 \
+ * @b: The other operator                                                         \
+ *                                                                               
+ * Return: Nothing.                                                                  
+ */
+void op_error(stack_t **stack, unsigned int linecount)
+{
+  (void)stack;
+  
+  printf("L%u: unknown instruction", linecount);
+  exit(EXIT_FAILURE);
+}

@@ -1,0 +1,1 @@
+This directory contains the exercises for the quirky programming language brainfuck.

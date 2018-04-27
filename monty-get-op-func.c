@@ -12,7 +12,6 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
 {
   int i = 0;
   instruction_t ops[] = {
-    {"error", op_error}, 
     {"pall", op_pall},
     {"pint", op_pint},
     /*
@@ -41,5 +40,5 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
 	}
       i++;
     }
-  return (ops[0].f);
+  return(NULL);
 }
