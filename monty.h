@@ -47,4 +47,5 @@ size_t print_dlistint(stack_t *h);
 void op_pall(stack_t **stack, unsigned int linecount);
 void op_pint(stack_t **stack, unsigned int linecount);
 void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount);
+void op_error(stack_t **stack, unsigned int linecount);
 #endif
