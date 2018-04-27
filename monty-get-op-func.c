@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "monty.h"
+
+/**
+ * get_op_func - get the functions
+ *
+ * @s: the operator
+ *
+ * Return: pointer to a function
+ */
+void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
+{
+  int i = 0;
+  instruction_t ops[] = {
+    {"pall", op_pall},
+    {"pint", op_pint},
+    /*
+      {"pop", op_pop},
+    {"swap", op_swap}
+    {"add", op_add},
+    {"nop", op_nop},
+    {"sub", op_sub},
+    {"div", op_div},
+    {"mul", op_mul},
+    {"mod", op_mod},
+    {"pchar", op_pchar},
+    {"pstr", op_pstr},
+    {"rotl", op_rotl},
+    {"rotr", op_rotr},
+    {"stack", op_stack},
+    {"queue", op_queue},
+    */
+    {NULL, NULL}
+  };
+  while (ops[i].opcode != NULL)
+    {
+      if (strcmp(ops[i].opcode, s) == 0)
+	{
+	  printf("GOTO FUNCS\n");
+	  return (ops[i].f);
+	}
+      i++;
+    }
+  return (NULL);
+}
