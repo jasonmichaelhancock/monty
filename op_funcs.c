@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * op_pall - print the stack
  *
@@ -18,6 +17,7 @@ void op_pall(stack_t **stack, unsigned int linecount)
       printf("%d\n", temp->n);
       temp = temp->next;
     }
+  return;
 }
 /**
  * op_add - add func                                                                   *
@@ -27,23 +27,18 @@ void op_pall(stack_t **stack, unsigned int linecount)
 void op_pint(stack_t **stack, unsigned int linecount)
 {
   stack_t *temp = *stack;
-  (void)linecount;
 
-  printf("PINT:\n%d\n", temp->n);
-  temp = temp->next;
+  if (*stack == NULL)
+  {
+	printf("L%u: can't pint, stack empty", linecount);
+  }
+  printf("%d\n", temp->n);
+  return;
 }
-/**                                                                                  
- * op_add - add func                                                                \
- *                                                                                 
- * @a: The operator                                                                 \
- * @b: The other operator                                                         \
- *                                                                               
- * Return: Nothing.                                                                  
- */
-void op_error(stack_t **stack, unsigned int linecount)
+/*
+void error(*s, unsigned int line_count)
 {
-  (void)stack;
-  
-  printf("L%u: unknown instruction", linecount);
-  exit(EXIT_FAILURE);
+  printf("L%u: unknown instruction %s", line_count, s);       
+  exit(EXIT_FAILURE);                                             
 }
+*/
