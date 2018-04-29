@@ -14,9 +14,9 @@ void (*get_op_func(char *s, unsigned int line_number))(stack_t **, unsigned int)
   instruction_t ops[] = {
     {"pall", op_pall},
     {"pint", op_pint},
+    {"pop", op_pop},
     /*
-      {"pop", op_pop},
-    {"swap", op_swap}
+      {"swap", op_swap}
     {"add", op_add},
     {"nop", op_nop},
     {"sub", op_sub},

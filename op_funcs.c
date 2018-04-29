@@ -12,6 +12,10 @@ void op_pall(stack_t **stack, unsigned int linecount)
   stack_t *temp = *stack;
   (void)linecount;
 
+  if (*stack == NULL)
+  {
+	return;
+  }
   while (temp != NULL)
     {
       printf("%d\n", temp->n);
@@ -33,14 +37,22 @@ void op_pint(stack_t **stack, unsigned int linecount)
   if (*stack == NULL)
   {
 	printf("L%u: can't pint, stack empty", linecount);
+	exit(EXIT_FAILURE);
   }
   printf("%d\n", temp->n);
   return;
 }
-/*
-void error(*s, unsigned int line_count)
+void op_pop(stack_t **stack, unsigned int linecount)
 {
-  printf("L%u: unknown instruction %s", line_count, s);       
-  exit(EXIT_FAILURE);                                             
+      stack_t *temp;
+
+      if (*stack == NULL)
+      {
+	    printf("L%u: can't pop an empty stack", linecount);
+	    exit(EXIT_FAILURE);
+      }
+      temp = *stack;
+      *stack = (*stack)->next;
+      free(temp);
+      return;
 }
-*/
