@@ -8,7 +8,7 @@
  *
  * Return: pointer to a function
  */
-void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
+void (*get_op_func(char *s, unsigned int line_number))(stack_t **, unsigned int)
 {
   int i = 0;
   instruction_t ops[] = {
@@ -40,5 +40,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount)
 	}
       i++;
     }
+  printf("L%u: unknown instruction %s\n", line_number, s);
+  exit(EXIT_FAILURE);
   return(NULL);
 }

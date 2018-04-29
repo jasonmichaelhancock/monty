@@ -20,8 +20,10 @@ void op_pall(stack_t **stack, unsigned int linecount)
   return;
 }
 /**
- * op_add - add func                                                                   *
- * @a: The operator                                                                    * @b: The other operator                                                              * 
+ * op_pint - print first node
+ * @stack: The linked list
+ * @linecount: the current line
+ *
  * Return: Nothing.
  */
 void op_pint(stack_t **stack, unsigned int linecount)

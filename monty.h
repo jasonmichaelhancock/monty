@@ -33,7 +33,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
   char *opcode;
-  void (*f)(stack_t **stack, unsigned int linecount);
+  void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
@@ -41,11 +41,12 @@ stack_t *stack;
 
 int main(int argc, char **argv);
 void open_file(char *filename);
-int remove_spaces(char *filename);
-void push_ex(stack_t **stack, char *token);
+void push_ex(stack_t **stack, char *token, unsigned int line_number);
 size_t print_dlistint(stack_t *h);
-void op_pall(stack_t **stack, unsigned int linecount);
-void op_pint(stack_t **stack, unsigned int linecount);
-void (*get_op_func(char *s))(stack_t **stack, unsigned int linecount);
-void op_error(stack_t **stack, unsigned int linecount);
+void op_pall(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *s, unsigned int line_number))(stack_t **, unsigned int);
+/*
+  void error(char *s, unsigned int line_count);
+*/
 #endif

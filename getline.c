@@ -9,7 +9,7 @@ void open_file(char *filename)
   char *line = NULL;
   int reads;
   size_t buffersize = 0;
-  unsigned long int line_count = 0;
+  unsigned int line_number = 0;
   char *psh = "push";
 
   if (filename == NULL)
@@ -27,10 +27,10 @@ void open_file(char *filename)
     {
       if (*line == '\n')
 	{
-	  line_count++;
+	  line_number++;
 	  continue;
 	}
-      line_count++;
+      line_number++;
       token = strtok(line, DELIMS);
       if (token == NULL)
 	{
@@ -39,13 +39,13 @@ void open_file(char *filename)
       token1 = strtok(NULL,DELIMS);
       if ((strcmp(token, psh)) != 0)
 	{
-	  (*get_op_func(token))(&stack, line_count);
+	      (*get_op_func(token, line_number))(&stack, line_number);
 	}
       else
 	{
 	  if (token != NULL)
 	    {
-	      push_ex(&stack, token1);
+		  push_ex(&stack, token1, line_number);
 	    }
 	}
     }
